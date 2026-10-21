@@ -1,0 +1,9 @@
+Player_ID;Nickname;Team;Kills;Deaths;Email;Country
+1;s1mple;Navi;145;90;s1mple@navi.gg;UA
+2;ZywOo;Vitality;150;85;zywoo@vitality.fr;FR
+3;m0NESY;G2;138;92;m0nesy_g2@gmail.com;RU
+4;b1t;Navi;110;95;b1t@navi.gg;UA
+5;niko;G2;125;100;niko_cs@g2.com;BA
+6;apex;Vitality;80;115;apex@vitality.fr;FR
+7;INVALID_USER;Test;0;0;bad_email_format;XX
+8;s1mple;Navi;145;90;s1mple@navi.gg;UA

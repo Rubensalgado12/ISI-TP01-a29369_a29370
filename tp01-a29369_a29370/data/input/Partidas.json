@@ -1,0 +1,26 @@
+[
+  {
+    "match_id": "M101",
+    "map": "de_inferno",
+    "team_a": "Navi",
+    "team_b": "G2",
+    "score_a": 13,
+    "score_b": 11
+  },
+  {
+    "match_id": "M102",
+    "map": "de_mirage",
+    "team_a": "Vitality",
+    "team_b": "G2",
+    "score_a": 13,
+    "score_b": 8
+  },
+  {
+    "match_id": "M103",
+    "map": "de_nuke",
+    "team_a": "Navi",
+    "team_b": "Vitality",
+    "score_a": 10,
+    "score_b": 13
+  }
+]
