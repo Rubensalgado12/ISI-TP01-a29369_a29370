@@ -1,0 +1,478 @@
+[
+    {
+        "id": "c5ef576381e4210f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f3df5b905dacc123",
+        "type": "ui_tab",
+        "name": "Monitorização CS2",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e5f12322ab3fcfcd",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "f7b469e3a31660c4",
+        "type": "ui_group",
+        "name": "Torneio CS2",
+        "tab": "f3df5b905dacc123",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9b1f540a4634035a",
+        "type": "http in",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "url": "/Partidas",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "a4485587769e91a2"
+            ]
+        ]
+    },
+    {
+        "id": "d252db54269586e8",
+        "type": "http response",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 510,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a4485587769e91a2",
+        "type": "template",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "[\n  {\n    \"match_id\": \"M101\",\n    \"map\": \"de_inferno\",\n    \"team_a\": \"Navi\",\n    \"team_b\": \"G2\",\n    \"score_a\": 13,\n    \"score_b\": 11\n  },\n  {\n    \"match_id\": \"M102\",\n    \"map\": \"de_mirage\",\n    \"team_a\": \"Vitality\",\n    \"team_b\": \"G2\",\n    \"score_a\": 13,\n    \"score_b\": 8\n  },\n  {\n    \"match_id\": \"M103\",\n    \"map\": \"de_nuke\",\n    \"team_a\": \"Navi\",\n    \"team_b\": \"Vitality\",\n    \"score_a\": 10,\n    \"score_b\": 13\n  }\n]",
+        "output": "json",
+        "x": 340,
+        "y": 260,
+        "wires": [
+            [
+                "d252db54269586e8",
+                "60bf17d54921db41"
+            ]
+        ]
+    },
+    {
+        "id": "29901f51b4128672",
+        "type": "http in",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "url": "/SalvarDados",
+        "method": "post",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "750715237fe7e30b"
+            ]
+        ]
+    },
+    {
+        "id": "750715237fe7e30b",
+        "type": "json",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "3f0c0f7d331934f8",
+                "ffe64a3cc7e8f147",
+                "3f1e54ef87438956",
+                "936b40802ddfedb5",
+                "2a74ad4d7ba47ae2",
+                "e089defbaf4963bd",
+                "5f4b1b3b7d5efe79"
+            ]
+        ]
+    },
+    {
+        "id": "ffe64a3cc7e8f147",
+        "type": "debug",
+        "z": "c5ef576381e4210f",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3f0c0f7d331934f8",
+        "type": "http response",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3f1e54ef87438956",
+        "type": "e-mail",
+        "z": "c5ef576381e4210f",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "simaomartinhovidal@gmail.com",
+        "dname": "Alerta / Relatório do Torneio de CS2",
+        "x": 770,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "60bf17d54921db41",
+        "type": "ui_chart",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "group": "f7b469e3a31660c4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Pontuação em Tempo Real",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 600,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "936b40802ddfedb5",
+        "type": "function",
+        "z": "c5ef576381e4210f",
+        "name": "function 1",
+        "func": "var dados = msg.payload;\nif (Array.isArray(dados)) {\n    for (var i = 0; i < dados.length; i++) {\n        if (dados[i][\"Team\"] === \"Navi\") {\n            msg.payload = Number(dados[i][\"K/D Ratio\"]);\n            return msg;\n        }\n    }\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 500,
+        "wires": [
+            [
+                "07a82065f670d18c"
+            ]
+        ]
+    },
+    {
+        "id": "07a82065f670d18c",
+        "type": "ui_gauge",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "group": "f7b469e3a31660c4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "NaVi - K/D Ratio",
+        "label": "units",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "2",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 940,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "be5863bdc2e3bfb2",
+        "type": "ui_gauge",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "group": "f7b469e3a31660c4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "G2 - K/D Ratio",
+        "label": "units",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "2",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 940,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4eab6cb3692f9526",
+        "type": "ui_gauge",
+        "z": "c5ef576381e4210f",
+        "name": "",
+        "group": "f7b469e3a31660c4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Vitality - K/D Ratio",
+        "label": "units",
+        "format": "{{value | number:2}}",
+        "min": 0,
+        "max": "2",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "2a74ad4d7ba47ae2",
+        "type": "ui_template",
+        "z": "c5ef576381e4210f",
+        "group": "f7b469e3a31660c4",
+        "name": "",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<div style=\"font-family: sans-serif; padding: 10px;\">\n    <h3 style=\"color: #2196F3; border-bottom: 1px solid #ccc;\">Resumo do Torneio</h3>\n    <table style=\"width:100%; text-align:left; border-collapse: collapse;\">\n        <tr style=\"background-color: #f2f2f2;\">\n            <th style=\"padding: 8px;\">Equipa</th>\n            <th style=\"padding: 8px;\">Kills</th>\n            <th style=\"padding: 8px;\">Deaths</th>\n            <th style=\"padding: 8px;\">K/D Ratio</th>\n        </tr>\n        <tr ng-repeat=\"item in msg.payload\">\n            <td style=\"padding: 8px;\"><b>{{item.Team}}</b></td>\n            <td style=\"padding: 8px;\">{{item['Sum(Kills)']}}</td>\n            <td style=\"padding: 8px;\">{{item['Sum(Deaths)']}}</td>\n            <td style=\"padding: 8px; color: green;\"><b>{{item['K/D Ratio'] | number:2}}</b></td>\n        </tr>\n    </table>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 720,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e089defbaf4963bd",
+        "type": "function",
+        "z": "c5ef576381e4210f",
+        "name": "function 2",
+        "func": "var dados = msg.payload;\nif (Array.isArray(dados)) {\n    for (var i = 0; i < dados.length; i++) {\n        if (dados[i][\"Team\"] === \"G2\") {\n            msg.payload = Number(dados[i][\"K/D Ratio\"]);\n            return msg;\n        }\n    }\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 560,
+        "wires": [
+            [
+                "be5863bdc2e3bfb2"
+            ]
+        ]
+    },
+    {
+        "id": "5f4b1b3b7d5efe79",
+        "type": "function",
+        "z": "c5ef576381e4210f",
+        "name": "function 3",
+        "func": "var dados = msg.payload;\nif (Array.isArray(dados)) {\n    for (var i = 0; i < dados.length; i++) {\n        if (dados[i][\"Team\"] === \"Vitality\") {\n            msg.payload = Number(dados[i][\"K/D Ratio\"]);\n            return msg;\n        }\n    }\n}\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 620,
+        "wires": [
+            [
+                "4eab6cb3692f9526"
+            ]
+        ]
+    },
+    {
+        "id": "00eedc0b227de205",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-node-email": "5.2.5"
+        }
+    }
+]
