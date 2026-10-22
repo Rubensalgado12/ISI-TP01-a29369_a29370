@@ -5,7 +5,9 @@ a29369 - Simão Martinho Vidal
 a29370 - Rúben Salgado
 
 Link do Vídeo de Demonstração
-https://drive.google.com/file/d/1G8mCgfqIIa0vhR3KEYZ0Rk0zt4WIzOG_/view?usp=drive_link
+a29370 - https://drive.google.com/file/d/1G8mCgfqIIa0vhR3KEYZ0Rk0zt4WIzOG_/view?usp=drive_link
+
+a29369 - https://drive.google.com/file/d/13ygzCs3hqqMg4sTZQZNl1KVi6noCq5oL/view?usp=drive_link
 
 Descrição dos Ficheiros
 /doc: Contém o relatório final do trabalho prático em formato PDF.
